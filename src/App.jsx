@@ -1,17 +1,22 @@
-import './App.css'
-import Card from './components/Card'
+import { useState } from 'react';
+import './App.css';
+import Card from './components/Card';
+import Form from './components/Form';
 
 function App() {
- 
-const msj = " Hola, soy una tarjeta"
+
+const[show, setShow]=useState({
+  state:false,
+  user:null
+});
+
 
   return (
-    <div className='App'>
-       <h1>Carga de estudiantes</h1>
-      <form></form>
-      <Card msj={msj}/>
+    <div className="App">
+      <h2>Queremos saber más de ti!</h2>
+     {!show.state ? <Form setShow={setShow}/>: <Card user={show.user}/>}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
